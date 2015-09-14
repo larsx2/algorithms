@@ -15,7 +15,7 @@ void printList(struct node * n) {
 
 // Insert a node at the beginning of the list, making it the new head
 void preppend(struct node ** head, int new_data) {
-    struct node * new_node = (struct node*) malloc(sizeof(struct node));
+    struct node * new_node = (struct node *) malloc(sizeof(struct node));
     new_node->data = new_data;
     new_node->next = *head;
     *head = new_node;
@@ -23,7 +23,7 @@ void preppend(struct node ** head, int new_data) {
 
 // Append a node to the end of the list
 void append(struct node ** head, int new_data) {
-    struct node* new_node = (struct node *)malloc(sizeof(struct node));
+    struct node * new_node = (struct node *) malloc(sizeof(struct node));
     new_node->data = new_data;
     new_node->next = NULL;
 
@@ -32,7 +32,7 @@ void append(struct node ** head, int new_data) {
         return;
     }
 
-    struct node* current = (*head);
+    struct node * current = *head;
     while (current->next != NULL)
         current = current->next;
 
