@@ -42,7 +42,7 @@ class LinkedList(object):
 
         # lets look for the next node while having a reference
         # to the previous so we can unlink the next reference on prev
-        while current.next:
+        while current and current.next:
             if current.next.data == data:
                 current.next = current.next.next
                 break
@@ -57,5 +57,6 @@ if __name__ == "__main__":
     li.prepend(2)
     li.prepend(3)
     li.print_list()
-    li.remove(3)
+    li.remove(2)
+    li.remove(2)
     li.print_list()
