@@ -15,6 +15,7 @@ class LinkedList(object):
         while current:
             print "Node({})".format(current.data),
             current = current.next
+        print
 
     def preppend(self, data):
         node = Node(data)
@@ -31,6 +32,22 @@ class LinkedList(object):
                 current = current.next
             current.next = node
 
+    def remove(self, data):
+        current = self.head
+
+        # is head the node we are looking for?
+        if self.head and self.head.data == data:
+            self.head = self.head.next
+            return
+
+        # lets look for the next node while having a reference
+        # to the previous so we can unlink the next reference on prev
+        while current.next:
+            if current.next.data == data:
+                current.next = current.next.next
+                break
+            else:
+                current = current.next
 
 if __name__ == "__main__":
     li = LinkedList()
@@ -39,4 +56,6 @@ if __name__ == "__main__":
     li.preppend(1)
     li.preppend(2)
     li.preppend(3)
+    li.print_list()
+    li.remove(3)
     li.print_list()
