@@ -17,7 +17,7 @@ class LinkedList(object):
             current = current.next
         print
 
-    def preppend(self, data):
+    def prepend(self, data):
         node = Node(data)
         node.next = self.head
         self.head = node
@@ -53,9 +53,9 @@ if __name__ == "__main__":
     li = LinkedList()
     li.append(2)
     li.append(3)
-    li.preppend(1)
-    li.preppend(2)
-    li.preppend(3)
+    li.prepend(1)
+    li.prepend(2)
+    li.prepend(3)
     li.print_list()
     li.remove(3)
     li.print_list()
