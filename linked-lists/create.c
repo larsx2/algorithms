@@ -13,6 +13,18 @@ void printList(struct node * n) {
     }
 }
 
+int length(struct node * head) {
+    struct node * current = head;
+    int count = 0;
+
+    while (current != NULL) {
+        current = current->next;
+        count++;
+    }
+
+    return count;
+}
+
 int main() {
     struct node * head   = NULL;
     struct node * second = NULL;
@@ -31,6 +43,7 @@ int main() {
     third->data = 3;
     third->next = NULL;
 
+    printf("We have a list of %d nodes: ", length(head));
     printList(head);
 
     return 0;
