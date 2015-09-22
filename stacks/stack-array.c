@@ -5,6 +5,7 @@
 
 struct Stack {
     int top;
+    int min;
     unsigned capacity;
     int * array;
 };
@@ -13,6 +14,7 @@ struct Stack * create(unsigned capacity) {
     struct Stack * stack = (struct Stack *) malloc(sizeof(struct Stack));
     stack->capacity = capacity;
     stack->top = -1;
+    stack->min = INT_MAX;
     stack->array = (int *) malloc(stack->capacity * sizeof(int));
 
     return stack;
@@ -29,7 +31,14 @@ int isEmpty(struct Stack * stack) {
 void push(struct Stack * stack, int item) {
     if (! isFull(stack)) {
         stack->array[++stack->top] = item;
+
+        if (item < stack->min)
+            stack->min = item;
     }
+}
+
+int min(struct Stack * stack) {
+    return stack->min;
 }
 
 int pop(struct Stack * stack) {
@@ -54,6 +63,7 @@ int main() {
 
     assert(20 == pop(stack));
     assert(10 == peek(stack));
+    assert(10 == min(stack));
 
     return 0;
 }
