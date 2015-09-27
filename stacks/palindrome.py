@@ -37,7 +37,6 @@ def is_palindrome(s):
 
 
 if __name__ == "__main__":
-    is_palindrome("aba")
 
     values = {
         "palindrome": [
