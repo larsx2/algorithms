@@ -1,14 +1,15 @@
 def merge_sort(li, c=0, label=None):
     Len = len(li)
 
-    print c *" ", "MERGE_SORT: {} {}".format(li, "({})".format(label) if label else '')
+    print c *" ", "MERGE_SORT: {} {}".format(
+          li, "({})".format(label) if label else '')
 
     if Len < 2:
         print (c+4) *" ", "RETURN {} ({})\n".format(li, label)
         return li
 
     mid = Len / 2
-    print (c+4) *" ","(left) {} ++ {} (right)\n".format(li[:mid], li[mid:])
+    print (c+4) *" ","LEFT: {}  RIGHT: {}\n".format(li[:mid], li[mid:])
 
     left = merge_sort(li[:mid], c+4, label='left')
     right = merge_sort(li[mid:], c+4, label='right')
