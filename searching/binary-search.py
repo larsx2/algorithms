@@ -34,6 +34,6 @@ def bisect_r(li, n, lo=0, hi=None):
 if __name__ == "__main__":
 
     List = [1,2,3,4,5,6,7,8,9]
-    print bisect(List, 3), bisect_r(List, 3)
-    print bisect(List, 9), bisect_r(List, 9)
-    print bisect(List, 10), bisect_r(List, 10)
+    assert bisect(List, 3) == bisect_r(List, 3)
+    assert bisect(List, 9) == bisect_r(List, 9)
+    assert bisect(List, 10) == bisect_r(List, 10)
